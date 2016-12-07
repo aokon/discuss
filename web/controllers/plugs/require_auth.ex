@@ -8,7 +8,7 @@ defmodule Discuss.Plugs.RequireAuth do
   end
 
   def call(conn, _params) do
-    if conn.assigns[:current_user] do
+    if conn.assigns.current_user do
       conn
     else
       conn
