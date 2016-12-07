@@ -9,18 +9,16 @@ defmodule Discuss.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
-  end
-
   scope "/", Discuss do
     pipe_through :browser # Use the default browser stack
 
     resources "/", TopicController
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Discuss do
-  #   pipe_through :api
-  # end
+  scope "/auth", Discuss do
+    pipe_through :browser # Use the default browser stack
+
+    get "/:provider", AuthController, :request
+    get "/:provider/callback", AuthController, :callback
+  end
 end
