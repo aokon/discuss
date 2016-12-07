@@ -21,9 +21,19 @@
 
   <body>
     <header class="header">
-      <%= link to: topic_path(@conn, :index) do %>
-        <span class="logo"></span>
-      <% end %>
+      <div class="container">
+        <%= link to: topic_path(@conn, :index) do %>
+          <span class="logo"></span>
+        <% end %>
+
+        <ul class="right">
+          <%= if @conn.assigns[:current_user] do %>
+            <%= link "Sign out", to: auth_path(@conn, :signout), method: :delete, class: "btn" %>
+          <% else %>
+            <%= link "Sign in with Github", to: auth_path(@conn, :request, "github"), class: "btn" %>
+          <% end %>
+        </ul>
+      </div>
     </header>
 
     <div class="container">
