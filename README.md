@@ -1,10 +1,15 @@
 # Discuss
 
+Simple forum app created during the [`course`](https://www.udemy.com/the-complete-elixir-and-phoenix-bootcamp-and-tutorial/learn/v4/overview)
+
 To start your Phoenix app:
 
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
   * Install Node.js dependencies with `npm install`
+  * This app requires OAuth setup with github, so you have to create own `env` file based on `.env.example`
+  * Create OAuth application in your Github account
+  * Load your .env file before you start the app using `source .env`
   * Start Phoenix endpoint with `mix phoenix.server`
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
